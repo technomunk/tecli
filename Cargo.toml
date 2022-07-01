@@ -1,0 +1,15 @@
+[package]
+name = "tecli"
+version = "0.1.0"
+authors = ["technomunk"]
+edition = "2021"
+description = "Technomunk's random CLI-based stuff"
+readme = "readme.md"
+homepage = "https://github.com/technomunk/tecli"
+repository = "https://github.com/technomunk/tecli"
+license = "Apache-2.0 or MIT"
+keywords = ["cli"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
