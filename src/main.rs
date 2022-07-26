@@ -2,15 +2,29 @@
 
 #![warn(clippy::all)]
 
-use clap::Parser;
+mod img;
 
-/// Trivial CLI command that just prints hello world
+use clap::{Parser, Subcommand};
+
 #[derive(Parser, Debug)]
-struct Args {}
+#[clap(author, version, about)]
+#[clap(propagate_version = true)]
+struct Cli {
+    #[clap(subcommand)]
+    command: Commands,
+}
+
+#[derive(Subcommand, Debug)]
+enum Commands {
+    #[clap(subcommand)]
+    Img(img::Command),
+}
 
 fn main() {
     // Parse empty args, as the user may have supplied a help flag
-    let _args = Args::parse();
+    let args = Cli::parse();
 
-    println!("Hello, world!");
+    match args.command {
+        Commands::Img(img) => img::command(img),
+    }
 }
